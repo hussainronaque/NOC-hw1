@@ -22,7 +22,7 @@
 
 \boxedpoints
 
-% \printanswers %Uncomment this 
+\printanswers %Uncomment this 
 
 \theoremstyle{claim}
 \newtheorem{claim}{Claim}
@@ -71,7 +71,30 @@ concise language.
   \end{claim}
   
   \begin{solution}
-    
+    We have to prove a language C has members : w is member of A given that it is member of B, where A and B are some regular languages then so is C. To accomplish this we can construct a DFA that accepts language C to complete the proof. 
+
+    let $C' = (Q, \sigma, \delta, q_0, F)$ be a DFA that accepts language C. 
+    Language A is accepted by DFA A' and language B is accepted by DFA B'
+    Let $A' = (Q_A, \sigma, \delta_A, q_{0A}, F_A)$ and $B' = (Q_B, \sigma, \delta_B, q_{0B}, F_B)$
+
+     We can construct C as follows:
+    \begin{itemize}
+      \item $Q = {(q_A, q_B) \mid q_A \in Q_A, q_B \in Q_B}$
+      so the new state set Q is the cartesian product of the state sets of A and B.
+      \item $\sigma = \sigma_A = \sigma_B$
+      (since w $\in$ $\Sigma*$ and $\Sigma =\{a,b\}$ which is same for A and B)
+      \item $\delta((q_A, q_B), a) = (\delta_A(q_A, a), \delta_B(q_B, a))$
+      \item $q_0 = (q_{0A}, q_{0B})$
+      \item $F = F_A \times F_B$
+      the start states and end states of C' will be pair of start states and end states of A' and B' respectively.
+    \end{itemize}
+    Now we have to prove that C' is a DFA that accepts language C.
+    \begin{itemize}
+      \item C is a DFA because it has a finite set of states, a finite set of input symbols, a transition function, a start state, and a set of end states.
+      \item C accepts language C because it accepts all strings w that are accepted by A and B.
+    \end{itemize}
+    Therefore, C is a DFA that accepts language C, so the claim is true.  
+
   \end{solution}
   
 \question[35] Given the languages, $A$ and $B$, we define the following operation.
