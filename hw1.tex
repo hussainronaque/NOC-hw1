@@ -75,7 +75,7 @@ concise language.
         \node[state] (q_1) [right=of q_0] {$q_1$}; 
         \node[state] (q_2) [below=of q_1] {$q_2$}; 
         \node[state, accepting] (q_3) [right=of q_1] {$q_3$}; 
-        \node[state, accepting] (q_4) [right=of q_2] {$q_4$};
+        % \node[state, accepting] (q_4) [right=of q_2] {$q_4$};
         \node[state] (trap) [below=of q_2] {$q_{\text{trap}}$};
     
         \path[->] 
@@ -85,10 +85,11 @@ concise language.
               edge [bend right, right] node {b} (q_2)
         (q_2) edge [bend right, right] node {a} (q_1)
               edge [bend left, right] node {b} (trap)
-         (q_3) edge [bend left, right] node {b} (q_4)
-               edge [loop above] node {a} (q_3)
-         (q_4) edge [loop right] node {a} (q_4)
-               edge [bend left, right] node{b} (trap)
+         (q_3) edge [loop above] node {a} (q_3)
+        %  edge [bend left, right] node {b} (q_4)
+               
+        %  (q_4) edge [loop right] node {a} (q_4)
+        %        edge [bend left, right] node{b} (trap)
 
          
         (trap) edge [loop below] node {a, b} ();
